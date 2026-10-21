@@ -1,0 +1,16 @@
+# Merlin report generator (paper, Appendix "Implementation details").
+# Visual features are frozen; LoRA adapters and the visual-to-text projector are trained.
+backbone: Merlin
+decoder: RadLLaMA-7B
+visual_weights: released
+
+diagnostic_loss:
+  lambda_pos: 0.001
+  lambda_neg: 0.0005
+  tau: 8.0
+
+lora:
+  rank: 512
+  alpha: 16
+  dropout: 0.1
+  target_modules: [q_proj, v_proj]

@@ -1,0 +1,16 @@
+# HLIP report generator (paper, Appendix "Implementation details").
+# Visual features are frozen; LoRA adapters and the visual-to-text projector are trained.
+backbone: HLIP
+decoder: Qwen/Qwen2.5-0.5B
+visual_weights: locally-trained
+
+diagnostic_loss:
+  lambda_pos: 0.001
+  lambda_neg: 0.00025
+  tau: 8.0
+
+lora:
+  rank: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
