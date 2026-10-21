@@ -1,0 +1,6 @@
+{"sample_id": "case-1::liver", "organ": "liver", "supported": ["steatosis", "cyst"]}
+{"sample_id": "case-1::gallbladder", "organ": "gallbladder", "supported": ["normal"]}
+{"sample_id": "case-1::kidneys", "organ": "kidneys", "supported": ["stone", "hydronephrosis"]}
+{"sample_id": "case-2::liver", "organ": "liver", "supported": ["normal"]}
+{"sample_id": "case-2::gallbladder", "organ": "gallbladder", "supported": ["gallstones"], "unsupported": ["normal", "polyp"]}
+{"sample_id": "case-2::kidneys", "organ": "kidneys", "supported": [], "unsupported": []}

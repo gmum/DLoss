@@ -1,0 +1,26 @@
+{
+  "name": "example-abdominal-ct",
+  "note": "Illustrative vocabulary for running the examples and tests. It is NOT the vocabulary used in the paper.",
+  "organs": {
+    "liver": {
+      "normal": ["normal"],
+      "steatosis": ["fatty", "steatosis"],
+      "cyst": ["cyst", "cysts"],
+      "lesion": ["lesion", "lesions", "mass", "masses"],
+      "cirrhosis": ["cirrhotic", "nodular"]
+    },
+    "gallbladder": {
+      "normal": ["normal"],
+      "gallstones": ["gallstone", "gallstones"],
+      "sludge": ["sludge"],
+      "polyp": ["polyp", "polyps"],
+      "distension": ["distended", "distension"]
+    },
+    "kidneys": {
+      "normal": ["normal"],
+      "cyst": ["cyst", "cysts"],
+      "stone": ["stone", "stones", "calculus"],
+      "hydronephrosis": ["hydronephrosis"]
+    }
+  }
+}
