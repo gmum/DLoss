@@ -1,6 +1,15 @@
 # Diagnostic Loss: Asymmetric Supervision for Radiology Report Generation
 
-<!-- TODO before release: author list, affiliations, and the arXiv link/badge. -->
+Ignacy Kolton<sup>1</sup>, Wenxuan Li<sup>2</sup>, Zongwei Zhou<sup>2</sup>,
+Jarosław B. Ćwikła<sup>3</sup>, Arkadiusz Sitek<sup>4</sup>, Pedro R. A. S. Bassi<sup>2</sup>,
+Szymon Płotka<sup>1</sup>
+
+<sup>1</sup>Jagiellonian University, GMUM, Kraków ·
+<sup>2</sup>Johns Hopkins University ·
+<sup>3</sup>University of Warmia and Mazury, Olsztyn ·
+<sup>4</sup>MGH & Harvard Medical School
+
+<!-- TODO before release: arXiv link and badge. -->
 
 [![Tests](https://github.com/ikolton/diagnostic-loss/actions/workflows/tests.yml/badge.svg)](https://github.com/ikolton/diagnostic-loss/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -125,15 +134,22 @@ masking, mixed precision, target encoding, and the distributed scaling recipe.
 
 ## Citation
 
-<!-- TODO before release: replace with the arXiv BibTeX entry. -->
+<!-- TODO before release: add journal/eprint fields from arXiv. -->
 
 ```bibtex
-@article{diagnosticloss2026,
+@article{kolton2026diagnosticloss,
   title  = {Diagnostic Loss: Asymmetric Supervision for Radiology Report Generation},
-  author = {Kolton, Ignacy and others},
+  author = {Kolton, Ignacy and Li, Wenxuan and Zhou, Zongwei and {\'C}wik{\l}a, Jaros{\l}aw B. and Sitek, Arkadiusz and Bassi, Pedro R. A. S. and P{\l}otka, Szymon},
   year   = {2026}
 }
 ```
+
+## Acknowledgments
+
+We gratefully acknowledge Polish high-performance computing infrastructure
+PLGrid (HPC Center: ACK Cyfronet AGH) for providing computer facilities and
+support within computational grant no. PLG/2025/018792. This research was
+funded in part by National Science Center, Poland 2025/57/B/ST6/03100.
 
 ## License
 

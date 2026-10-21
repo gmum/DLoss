@@ -3,13 +3,30 @@ message: "If you use this software, please cite the paper."
 title: "Diagnostic Loss"
 license: MIT
 repository-code: "https://github.com/ikolton/diagnostic-loss"
-authors:
+authors: &authors
   - family-names: Kolton
     given-names: Ignacy
+    affiliation: "Jagiellonian University"
+  - family-names: Li
+    given-names: Wenxuan
+    affiliation: "Johns Hopkins University"
+  - family-names: Zhou
+    given-names: Zongwei
+    affiliation: "Johns Hopkins University"
+  - family-names: Ćwikła
+    given-names: Jarosław B.
+    affiliation: "University of Warmia and Mazury in Olsztyn"
+  - family-names: Sitek
+    given-names: Arkadiusz
+    affiliation: "Massachusetts General Hospital and Harvard Medical School"
+  - family-names: Bassi
+    given-names: Pedro R. A. S.
+    affiliation: "Johns Hopkins University"
+  - family-names: Płotka
+    given-names: Szymon
+    affiliation: "Jagiellonian University"
 preferred-citation:
   type: article
   title: "Diagnostic Loss: Asymmetric Supervision for Radiology Report Generation"
   year: 2026
-  authors:
-    - family-names: Kolton
-      given-names: Ignacy
+  authors: *authors
