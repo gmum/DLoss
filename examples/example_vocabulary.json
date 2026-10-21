@@ -1,6 +1,6 @@
 {
   "name": "example-abdominal-ct",
-  "note": "Illustrative vocabulary for running the examples and tests. It is NOT the vocabulary used in the paper.",
+  "note": "Example vocabulary used by the examples and tests.",
   "organs": {
     "liver": {
       "normal": ["normal"],

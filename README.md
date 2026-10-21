@@ -9,8 +9,6 @@ Szymon Płotka<sup>1</sup>
 <sup>3</sup>University of Warmia and Mazury, Olsztyn ·
 <sup>4</sup>MGH & Harvard Medical School
 
-<!-- TODO before release: arXiv link and badge. -->
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Diagnostic Loss (DLoss) is a training loss for radiology report generation,
@@ -125,13 +123,6 @@ Across BLEU, ROUGE-L, METEOR, CIDEr, GREEN and RadGraph-F1, 71 of the 72
 comparisons improve. The full table, a nine-seed analysis and ablations are in
 the paper.
 
-## Scope
-
-This repository contains the loss, target encoding, and examples of using them
-in a training step. It does not include the datasets, the report preprocessing
-and semantic-tagging pipeline, the vocabulary used in the paper, or the
-backbone-specific training code. The example vocabulary is illustrative only.
-
 ## Tests
 
 ```bash
@@ -142,8 +133,6 @@ The batched loss is tested against the loop-based reference and a direct
 implementation of the equations, for both values and gradients.
 
 ## Citation
-
-<!-- TODO before release: add journal/eprint fields from arXiv. -->
 
 ```bibtex
 @article{kolton2026diagnosticloss,

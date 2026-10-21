@@ -64,8 +64,7 @@ python examples/build_targets.py \
 
 > [!NOTE]
 > [`examples/example_vocabulary.json`](../examples/example_vocabulary.json) is a
-> small illustrative vocabulary used by the examples and tests. It is not the
-> vocabulary used in the paper.
+> small example vocabulary used by the examples and tests.
 
 ## Target file format
 
@@ -130,5 +129,4 @@ The targets in the paper were produced in three steps (Appendix,
    lexical forms. Supported concepts are the ones stated in the finding;
    unsupported ones are alternative findings for the same organ.
 
-This repository does not include that pipeline or the resulting vocabulary.
-`DiagnosticVocabulary` covers step 3 for labels you already have.
+`DiagnosticVocabulary` implements step 3 for labels you already have.
