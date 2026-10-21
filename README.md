@@ -29,19 +29,14 @@ are unchanged.
 ## Installation
 
 ```bash
-pip install diagnostic-loss
-```
-
-or from source, with the dependencies for the examples and tests:
-
-```bash
 git clone https://github.com/gmum/DLoss.git
 cd DLoss
-pip install -e ".[examples,dev]"
+pip install -e .
 ```
 
-The only runtime dependency is PyTorch ≥ 2.1. Install the PyTorch build for your
-platform first if you need a specific CUDA version.
+The only runtime dependency is PyTorch ≥ 2.1; install the build for your
+platform first if you need a specific CUDA version. To run the examples and
+tests as well, use `pip install -e ".[examples,dev]"`.
 
 ## Usage
 
