@@ -26,8 +26,8 @@ examples = ["transformers>=4.56"]
 dev = ["build>=1.2", "mypy>=1.10", "pytest>=8", "pyyaml>=6", "ruff>=0.6"]
 
 [project.urls]
-Repository = "https://github.com/gmum/diagnostic-loss"
-Issues = "https://github.com/gmum/diagnostic-loss/issues"
+Repository = "https://github.com/gmum/DLoss"
+Issues = "https://github.com/gmum/DLoss/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/diagnostic_loss"]

@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite the paper."
 title: "Diagnostic Loss"
 license: MIT
-repository-code: "https://github.com/gmum/diagnostic-loss"
+repository-code: "https://github.com/gmum/DLoss"
 authors: &authors
   - family-names: Kolton
     given-names: Ignacy

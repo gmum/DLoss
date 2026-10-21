@@ -35,8 +35,8 @@ pip install diagnostic-loss
 or from source, with the dependencies for the examples and tests:
 
 ```bash
-git clone https://github.com/gmum/diagnostic-loss.git
-cd diagnostic-loss
+git clone https://github.com/gmum/DLoss.git
+cd DLoss
 pip install -e ".[examples,dev]"
 ```
 
