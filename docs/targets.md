@@ -105,6 +105,8 @@ tokenize cleanly, and keep organ names out of the phrases.
 For reference, the targets in the paper were produced in three steps (Appendix,
 "Report preprocessing" and "Diagnostic supervision construction"):
 
+![Diagnostic target construction](../assets/target_construction.png)
+
 1. **Organ findings.** Qwen3 split each free-text report into one finding per
    organ.
 2. **Semantic tags.** Each finding was tagged with structured diagnostic labels

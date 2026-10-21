@@ -18,17 +18,9 @@ findings that are present and leave out the ones that are not. **Diagnostic Loss
 It is a training-only term added to cross-entropy: no extra heads, no changes to
 the vision encoder or decoder, and no cost at inference.
 
-```mermaid
-flowchart LR
-    R["Reference finding<br/>'small cyst in the liver'"] --> S["supported: cyst"]
-    R --> U["unsupported: steatosis, lesion, ..."]
-    D["Decoder token probabilities<br/>at every report position"] --> P
-    S --> P["noisy-OR over positions<br/>→ encourage"]
-    D --> N
-    U --> N["log-sum-exp over positions<br/>→ suppress peaks"]
-    P --> L["cross-entropy + DLoss"]
-    N --> L
-```
+<p align="center">
+  <img src="assets/overview.png" alt="Overview of Diagnostic Loss" width="820">
+</p>
 
 ## Installation
 
