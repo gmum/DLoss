@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "diagnostic-loss"
+version = "0.1.0"
+description = "Diagnostic Loss: asymmetric supervision for radiology report generation"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Ignacy Kolton" }]
+requires-python = ">=3.10"
+dependencies = ["torch>=2.1"]
+keywords = ["radiology", "report generation", "vision-language models", "loss function", "pytorch"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+
+[project.optional-dependencies]
+examples = ["transformers>=4.56"]
+dev = ["build>=1.2", "mypy>=1.10", "pytest>=8", "pyyaml>=6", "ruff>=0.6"]
+
+[project.urls]
+Repository = "https://github.com/ikolton/diagnostic-loss"
+Issues = "https://github.com/ikolton/diagnostic-loss/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/diagnostic_loss"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "examples", "configs", "docs", "README.md", "LICENSE", "CITATION.cff"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = "src"
+packages = ["diagnostic_loss"]
+strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
