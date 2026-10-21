@@ -1,7 +1,7 @@
 """Diagnostic Loss with an explicit report mask, for multimodal sequence layouts.
 
 When image tokens are interleaved with text, build the mask of report positions
-yourself and call ``diagnostic_loss`` directly. Runs offline on CPU.
+yourself and call ``diagnostic_loss`` directly.
 """
 
 from __future__ import annotations

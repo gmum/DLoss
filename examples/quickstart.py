@@ -1,7 +1,7 @@
-"""Train a tiny decoder with cross-entropy + Diagnostic Loss. Runs offline on CPU.
+"""Train a small GRU decoder with cross-entropy and Diagnostic Loss.
 
-The reports, tokenizer and model are toys; the point is the sequence of API calls:
-vocabulary -> target rows -> encoded targets -> loss in the training step.
+Uses toy reports and a whitespace tokenizer. Steps: vocabulary -> target rows ->
+encoded targets -> loss in the training step.
 """
 
 from __future__ import annotations

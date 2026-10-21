@@ -13,14 +13,13 @@ Szymon Płotka<sup>1</sup>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Cross-entropy rewards reports that match the reference word by word, but it
-does not require a model to mention the diagnoses that are present or to avoid
-the ones that are not. Diagnostic Loss (DLoss) is an extra training term on the
-decoder's token probabilities. A supported diagnosis should get high probability
-at some position of the report (noisy-OR pooling over positions), and an
-unsupported one should stay low at every position (log-sum-exp pooling). The
-loss is added to cross-entropy during training only; the model and decoding
-are unchanged.
+Diagnostic Loss (DLoss) is a training loss for radiology report generation,
+computed from the decoder's token probabilities and added to cross-entropy.
+For each organ finding, diagnoses stated in the reference report (supported)
+should receive high probability at some position of the generated report, and
+alternative diagnoses for the same organ (unsupported) should stay low at every
+position. The two requirements are implemented with noisy-OR and log-sum-exp
+pooling over positions. DLoss is used only during training.
 
 <p align="center">
   <img src="assets/overview.png" alt="Overview of Diagnostic Loss" width="820">
@@ -61,18 +60,14 @@ diagnostic = causal_diagnostic_loss(outputs.logits, batch["labels"], targets, co
 loss = outputs.loss + diagnostic.loss
 ```
 
-Run the examples:
+## Examples
 
-| Example | What it shows |
+| Script | Contents |
 | --- | --- |
-| [`quickstart.py`](examples/quickstart.py) | The full workflow on a toy decoder. Runs offline on CPU in seconds. |
-| [`custom_layout.py`](examples/custom_layout.py) | Image placeholder tokens and an explicit report mask. |
-| [`huggingface_qwen.py`](examples/huggingface_qwen.py) | A training step with Qwen2.5-0.5B and a trainable visual prefix. |
-| [`build_targets.py`](examples/build_targets.py) | Labelled findings (JSONL) → target files for a tokenizer. |
-
-```bash
-python examples/quickstart.py
-```
+| [`quickstart.py`](examples/quickstart.py) | Target preparation and training of a small GRU decoder with cross-entropy and DLoss. |
+| [`custom_layout.py`](examples/custom_layout.py) | DLoss with an explicit report mask for a sequence containing image tokens. |
+| [`huggingface_qwen.py`](examples/huggingface_qwen.py) | One training step with Qwen2.5-0.5B and a visual prefix. |
+| [`build_targets.py`](examples/build_targets.py) | Target files from a JSONL file of labelled findings. |
 
 ## Documentation
 

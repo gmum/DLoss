@@ -3,9 +3,7 @@
 [README](../README.md) · [Method](method.md) · [Integration](integration.md)
 
 DLoss needs, for every training example, a list of supported concepts and a
-list of unsupported alternatives, each given as lexical forms. This page covers
-how to write them, how to encode them for a tokenizer, and how the targets in
-the paper were produced.
+list of unsupported alternatives, each given as lexical forms.
 
 ## From labelled findings: `DiagnosticVocabulary`
 
@@ -96,13 +94,14 @@ different vocabulary.
 
 Look at how your tokenizer splits each phrase before training. With Qwen2.5,
 for example, `" cyst"` is one token but `"cyst"` is `c` + `yst`, and
-`"hydronephrosis"` contains the piece `one`. Concepts whose pieces are common
-subwords will push probability around ordinary words; prefer forms that
-tokenize cleanly, and keep organ names out of the phrases.
+`"hydronephrosis"` contains the piece `one`. If a concept's pieces are common
+subwords, the loss also changes the probability of unrelated words that share
+them. Prefer forms that split into few, specific pieces, and leave organ names
+out of the phrases.
 
 ## How the paper's targets were built
 
-For reference, the targets in the paper were produced in three steps (Appendix,
+The targets in the paper were produced in three steps (Appendix,
 "Report preprocessing" and "Diagnostic supervision construction"):
 
 ![Diagnostic target construction](../assets/target_construction.png)

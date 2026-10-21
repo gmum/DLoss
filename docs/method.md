@@ -11,8 +11,7 @@ over the report positions with two different operators:
 - a supported concept should get enough probability **at some position**;
 - an unsupported concept should stay unlikely **at every position**.
 
-In the paper each example is one organ finding, so supervision for one organ is
-never satisfied or contradicted by text about another.
+In the paper each example is a single organ finding.
 
 ## Probability mass of a concept
 
@@ -100,7 +99,6 @@ tests check both against each other and against a direct transcription with
 
 ## Limitations
 
-Token IDs are lexical evidence, not meaning. Subword pieces can be shared with
-unrelated words, and negation ("no cyst") and uncertainty are not modelled. The
-quality of the supervision depends on how the target concepts and their lexical
-forms are chosen; see [Targets](targets.md).
+The loss operates on token IDs. Subword pieces can be shared with unrelated
+words, and negation ("no cyst") and uncertainty are not modelled. The choice of
+concepts and lexical forms is discussed in [Targets](targets.md).

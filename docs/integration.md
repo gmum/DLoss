@@ -2,9 +2,8 @@
 
 [README](../README.md) · [Method](method.md) · [Targets](targets.md)
 
-DLoss needs three things from a training step: the decoder logits, which
-positions belong to the report, and the encoded targets of each example. It
-does not change the model, and nothing is needed at inference.
+DLoss needs three inputs in a training step: the decoder logits, the positions
+that belong to the report, and the encoded targets of each example.
 
 ## Standard causal language model
 
