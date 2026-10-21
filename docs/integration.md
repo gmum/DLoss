@@ -32,8 +32,8 @@ model's own cross-entropy does, and uses the positions whose label is not
 `-100`. An optional `report_mask` aligned with `labels` restricts them further,
 for example to exclude a fixed answer prefix.
 
-`diagnostic.positive_term` and `diagnostic.negative_term` are worth logging
-separately; `diagnostic.loss` is their sum.
+`diagnostic.loss` is the sum of `diagnostic.positive_term` and
+`diagnostic.negative_term`.
 
 ## Coefficients
 
@@ -87,9 +87,8 @@ loss = ce + diagnostic.loss
 ```
 
 [`examples/custom_layout.py`](../examples/custom_layout.py) shows this with image
-placeholder tokens and checks that non-report positions get no gradient. It is
-worth printing `labels[report_mask]` for one batch before training: correct
-shapes do not guarantee correct alignment.
+placeholder tokens and checks that non-report positions get no gradient. Print
+`labels[report_mask]` for one batch before training to check the alignment.
 
 For many concepts per example, lower `concept_chunk_size` (default 32) to reduce
 peak memory.

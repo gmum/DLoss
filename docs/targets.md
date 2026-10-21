@@ -67,7 +67,7 @@ Lexical targets are stored as JSONL, one row per finding:
 - `sample_id` must be unique; your data loader returns it with each example.
 - `sample_weight` and each concept's `weight` are optional (default 1.0).
 - A row with both lists empty is valid and contributes nothing to the loss. A
-  sample ID with no row raises an error, so missing targets never go unnoticed.
+  sample ID with no row raises an error.
 
 Rows can also be built directly in Python with `TargetSpec` and
 `LexicalConcept`, and written with `save_target_specs`.

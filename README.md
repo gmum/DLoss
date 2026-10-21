@@ -11,21 +11,16 @@ Szymon Płotka<sup>1</sup>
 
 <!-- TODO before release: arXiv link and badge. -->
 
-[![Tests](https://github.com/gmum/diagnostic-loss/actions/workflows/tests.yml/badge.svg)](https://github.com/gmum/diagnostic-loss/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Report-generation models trained with cross-entropy learn to write reports that
-read like a radiologist's, but nothing in the objective asks them to state the
-findings that are present and leave out the ones that are not. **Diagnostic Loss
-(DLoss)** adds that pressure directly on the decoder's token probabilities:
-
-- **supported** diagnoses (stated in the reference) should receive enough
-  probability at *some* position of the report — pooled with noisy-OR;
-- **unsupported** alternatives (other findings for the same organ) should stay
-  unlikely at *every* position — pooled with a temperature log-sum-exp.
-
-It is a training-only term added to cross-entropy: no extra heads, no changes to
-the vision encoder or decoder, and no cost at inference.
+Cross-entropy rewards reports that match the reference word by word, but it
+does not require a model to mention the diagnoses that are present or to avoid
+the ones that are not. Diagnostic Loss (DLoss) is an extra training term on the
+decoder's token probabilities. A supported diagnosis should get high probability
+at some position of the report (noisy-OR pooling over positions), and an
+unsupported one should stay low at every position (log-sum-exp pooling). The
+loss is added to cross-entropy during training only; the model and decoding
+are unchanged.
 
 <p align="center">
   <img src="assets/overview.png" alt="Overview of Diagnostic Loss" width="820">
@@ -64,8 +59,9 @@ store = EncodedTargetStore(rows)
 
 # In the training step.
 config = DiagnosticLossConfig(lambda_pos=0.001, lambda_neg=0.00025, tau=8.0)
+sample_ids = batch.pop("sample_ids")  # returned by your dataset, one per example
 outputs = model(**batch)  # labels are -100 outside the report
-targets = store.for_batch(batch_sample_ids)
+targets = store.for_batch(sample_ids)
 diagnostic = causal_diagnostic_loss(outputs.logits, batch["labels"], targets, config)
 loss = outputs.loss + diagnostic.loss
 ```
@@ -128,9 +124,8 @@ backbone-specific training code. The example vocabulary is illustrative only.
 pytest
 ```
 
-The tests compare the batched implementation with a loop-based reference and
-with a direct transcription of the equations, values and gradients, and cover
-masking, mixed precision, target encoding, and the distributed scaling recipe.
+The batched loss is tested against the loop-based reference and a direct
+implementation of the equations, for both values and gradients.
 
 ## Citation
 
