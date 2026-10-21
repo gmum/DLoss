@@ -5,6 +5,19 @@
 DLoss needs, for every training example, a list of supported concepts and a
 list of unsupported alternatives, each given as lexical forms.
 
+| Term | Meaning |
+| --- | --- |
+| finding | The text one training example covers; in the paper, the report text about one organ. |
+| concept | A diagnosis, such as `cyst`, given by its lexical forms: the words and phrases that express it. |
+| supported / unsupported | Concepts stated in the finding / other concepts for the same organ. |
+| target row | The supported and unsupported concepts of one training example. |
+| `sample_id` | Identifies a target row; your dataset returns it with each example. |
+| `text_unit` | Free-text description of the row, such as `"liver finding"`; not used by the loss. |
+
+In the paper every training example is a single organ finding. If your examples
+are whole reports, one concept (for example `normal`) can be stated for one
+organ and contradicted for another, which a single target row cannot express.
+
 ## From labelled findings: `DiagnosticVocabulary`
 
 If your findings are already labelled with concepts (by an annotator, a
@@ -79,6 +92,9 @@ specs = load_target_specs("targets/targets.jsonl")
 rows, audit = encode_target_specs(specs, tokenizer)
 save_encoded_targets("targets/encoded_targets.jsonl", rows, audit)
 ```
+
+The tokenizer needs `encode(text, add_special_tokens=False)` and `get_vocab()`;
+Hugging Face tokenizers provide both.
 
 Each concept becomes the set of token IDs of all its phrases. Encoding fails if
 a phrase produces a special token or an ID outside the vocabulary, or if a token

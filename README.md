@@ -21,6 +21,12 @@ alternative diagnoses for the same organ (unsupported) should stay low at every
 position. The two requirements are implemented with noisy-OR and log-sum-exp
 pooling over positions. DLoss is used only during training.
 
+The code follows the setup of the paper. Each report is split into findings per
+organ, each finding is a separate training example with the organ named in the
+prompt, and its supported and unsupported diagnoses come from labels prepared
+in advance. The loss itself only needs token IDs and report positions for each
+example, so targets built in a different way can be used with the same code.
+
 <p align="center">
   <img src="assets/overview.png" alt="Overview of Diagnostic Loss" width="820">
 </p>
@@ -36,6 +42,24 @@ pip install -e .
 The only runtime dependency is PyTorch ≥ 2.1; install the build for your
 platform first if you need a specific CUDA version. To run the examples and
 tests as well, use `pip install -e ".[examples,dev]"`.
+
+To check the installation, run the first example:
+
+```bash
+python examples/quickstart.py
+```
+
+```
+encoded 6 rows: 7 supported, 21 unsupported concepts
+step  0  ce 3.527  supported +0.1782  unsupported -0.1436
+step 20  ce 0.229  supported +0.0513  unsupported -0.3906
+step 40  ce 0.145  supported +0.0496  unsupported -0.5173
+step 60  ce 0.141  supported +0.0491  unsupported -0.5282
+```
+
+`supported` and `unsupported` are the two DLoss terms, already multiplied by
+their coefficients. The unsupported term is a log-probability, so it is
+negative; both terms decrease during training.
 
 ## Usage
 
