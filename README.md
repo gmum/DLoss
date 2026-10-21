@@ -11,7 +11,7 @@ Szymon Płotka<sup>1</sup>
 
 <!-- TODO before release: arXiv link and badge. -->
 
-[![Tests](https://github.com/ikolton/diagnostic-loss/actions/workflows/tests.yml/badge.svg)](https://github.com/ikolton/diagnostic-loss/actions/workflows/tests.yml)
+[![Tests](https://github.com/gmum/diagnostic-loss/actions/workflows/tests.yml/badge.svg)](https://github.com/gmum/diagnostic-loss/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Report-generation models trained with cross-entropy learn to write reports that
@@ -40,7 +40,7 @@ pip install diagnostic-loss
 or from source, with the dependencies for the examples and tests:
 
 ```bash
-git clone https://github.com/ikolton/diagnostic-loss.git
+git clone https://github.com/gmum/diagnostic-loss.git
 cd diagnostic-loss
 pip install -e ".[examples,dev]"
 ```
