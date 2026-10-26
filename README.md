@@ -9,6 +9,7 @@ Szymon Płotka<sup>1</sup>
 <sup>3</sup>University of Warmia and Mazury, Olsztyn ·
 <sup>4</sup>MGH & Harvard Medical School
 
+[![arXiv](https://img.shields.io/badge/arXiv-2610.30980-b31b1b.svg)](https://arxiv.org/abs/2610.30980)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Diagnostic Loss (DLoss) is a training loss for radiology report generation,
@@ -121,7 +122,7 @@ CancerVerse (about 44k abdominal CT scans); evaluated on the Merlin test set
 
 Across BLEU, ROUGE-L, METEOR, CIDEr, GREEN and RadGraph-F1, 71 of the 72
 comparisons improve. The full table, a nine-seed analysis and ablations are in
-the paper.
+the [paper](https://arxiv.org/abs/2610.30980).
 
 ## Tests
 
@@ -135,10 +136,14 @@ implementation of the equations, for both values and gradients.
 ## Citation
 
 ```bibtex
-@article{kolton2026diagnosticloss,
-  title  = {Diagnostic Loss: Asymmetric Supervision for Radiology Report Generation},
-  author = {Kolton, Ignacy and Li, Wenxuan and Zhou, Zongwei and {\'C}wik{\l}a, Jaros{\l}aw B. and Sitek, Arkadiusz and Bassi, Pedro R. A. S. and P{\l}otka, Szymon},
-  year   = {2026}
+@misc{kolton2026diagnosticloss,
+  title         = {Diagnostic Loss: Asymmetric Supervision for Radiology Report Generation},
+  author        = {Kolton, Ignacy and Li, Wenxuan and Zhou, Zongwei and {\'C}wik{\l}a, Jaros{\l}aw B. and Sitek, Arkadiusz and Bassi, Pedro R. A. S. and P{\l}otka, Szymon},
+  year          = {2026},
+  eprint        = {2610.30980},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2610.30980}
 }
 ```
 
